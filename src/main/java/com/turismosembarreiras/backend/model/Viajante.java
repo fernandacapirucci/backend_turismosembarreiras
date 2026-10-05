@@ -11,8 +11,9 @@ public class Viajante {
     @Column(name = "id_viajante")
     private Long idViajante;
 
-    @Column(name = "id_usuario")
-    private Long idUsuario;
+    @OneToOne
+    @JoinColumn(name = "id_usuario", nullable = false, unique = true)
+    private Usuario usuario;
 
     @Column(name = "id_deficiencia")
     private Long idDeficiencia;
@@ -34,12 +35,12 @@ public class Viajante {
         this.idViajante = idViajante; 
     }
 
-    public Long getIdUsuario() { 
-        return idUsuario; 
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(Long idUsuario) { 
-        this.idUsuario = idUsuario; 
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Long getIdDeficiencia() { 

@@ -11,8 +11,9 @@ public class Agencia {
     @Column(name = "id_agencia")
     private Long idAgencia;
 
-    @Column(name = "id_usuario")
-    private Long idUsuario;
+    @OneToOne
+    @JoinColumn(name = "id_usuario", nullable = false, unique = true)
+    private Usuario usuario;
 
     @Column(name = "nome_social")
     private String nomeSocial;
@@ -37,12 +38,12 @@ public class Agencia {
         this.idAgencia = idAgencia;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getNomeSocial() {
